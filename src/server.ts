@@ -24,8 +24,4 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
     .json({ type: 'error', message: 'Internal server error' });
 });
 
-app.get('/', (request: Request, response: Response) =>
-  response.json({ message: 'Hello world' })
-);
-
 app.listen(3333, () => console.log('Server started listening on port 3333'));
