@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer';
 import { getCustomRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 import AppError from '../errors/AppError';
@@ -37,6 +38,6 @@ export default class CreateUserService {
     });
 
     await usersRepository.save(user);
-    return user;
+    return classToClass(user);
   }
 }

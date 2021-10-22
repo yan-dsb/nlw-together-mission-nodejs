@@ -6,6 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn
 } from 'typeorm';
+import { Expose } from 'class-transformer';
 
 @Entity('tags')
 export default class Tag {
@@ -20,6 +21,11 @@ export default class Tag {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: 'customName' })
+  customName(): string {
+    return `#${this.name}`;
+  }
 
   constructor() {
     if (!this.id) {
